@@ -104,7 +104,7 @@ def display_game_menu(grid_height, grid_width):
    # the colors used for the menu
    background_color = Color(42, 69, 99)
    button_color = Color(25, 255, 228)
-   text_color = Color(31, 160, 239)
+   text_color = Color(0, 10, 0)
    # clear the background drawing canvas to background_color
    stddraw.clear(background_color)
    # get the directory in which this python code file is placed
@@ -125,7 +125,7 @@ def display_game_menu(grid_height, grid_width):
    stddraw.setPenColor(button_color)
    stddraw.filledRectangle(button_blc_x, button_blc_y, button_w, button_h)
    # add the text on the start game button
-   stddraw.setFontFamily("Arial")
+   stddraw.setFontFamily("Arial Black")
    stddraw.setFontSize(25)
    stddraw.setPenColor(text_color)
    text_to_display = "Click Here to Start the Game"
