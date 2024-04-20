@@ -11,6 +11,7 @@ class Tetromino:
 
    # A constructor for creating a tetromino with a given shape (type)
    def __init__(self, shape):
+      global n
       self.type = shape  # set the type of this tetromino
       # determine the occupied (non-empty) cells in the tile matrix based on
       # the shape of this tetromino (see the documentation given with this code)
@@ -36,6 +37,37 @@ class Tetromino:
          occupied_cells.append((1, 1))
          occupied_cells.append((1, 2))
          occupied_cells.append((2, 2))
+      elif self.type == 'S':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino S in its initial rotation state
+         occupied_cells.append((0, 1)) #21
+         occupied_cells.append((1, 0)) #12
+         occupied_cells.append((1, 1)) #22
+         occupied_cells.append((2, 0)) #13
+
+      elif self.type == 'T':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino T in its initial rotation state
+         occupied_cells.append((0, 1))  # 21
+         occupied_cells.append((1, 1))  # 22
+         occupied_cells.append((1, 2))  # 32
+         occupied_cells.append((2, 1))  # 23
+
+      elif self.type == 'J':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino J in its initial rotation state
+         occupied_cells.append((1, 0))  # 12
+         occupied_cells.append((1, 1))  # 22
+         occupied_cells.append((0, 2))  # 31
+         occupied_cells.append((1, 2))  # 32
+
+      elif self.type == 'L':
+         n = 3  # n = number of rows = number of columns in the tile matrix
+         # shape of the tetromino L in its initial rotation state
+         occupied_cells.append((1, 0))  # 12
+         occupied_cells.append((1, 1))  # 22
+         occupied_cells.append((1, 2))  # 32
+         occupied_cells.append((2, 2))  # 33
       # create a matrix of numbered tiles based on the shape of this tetromino
       self.tile_matrix = np.full((n, n), None)
       # create the four tiles (minos) of this tetromino and place these tiles
