@@ -1,6 +1,5 @@
 import lib.stddraw as stddraw  # used for drawing the tiles to display them
 from lib.color import Color  # used for coloring the tiles
-
 # A class for modeling numbered tiles as in 2048
 class Tile:
    # Class variables shared among all Tile objects

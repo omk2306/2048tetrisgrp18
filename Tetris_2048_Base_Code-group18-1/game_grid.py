@@ -24,7 +24,7 @@ class GameGrid:
       # thickness values used for the grid lines and the grid boundaries
       self.line_thickness = 0.002
       self.box_thickness = 10 * self.line_thickness
-
+      self.score = 0
    # A method for displaying the game grid
    def display(self):
       # clear the background to empty_cell_color
@@ -40,6 +40,7 @@ class GameGrid:
       stddraw.setPenColor(Color(1, 1, 25))
       stddraw.setFontSize(22)
       stddraw.text(self.game_width + 4.5, self.grid_height - 1, "SCORE")
+      stddraw.text(self.game_width + 4.5, self.grid_height - 2, str(self.score))
       stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
       # show the resulting drawing with a pause duration = 250 ms
       stddraw.show(250)
@@ -56,10 +57,12 @@ class GameGrid:
                below_tile.number *= 2
                # Clear the current tile
                self.tile_matrix[row][col] = None
+               self.score += below_tile.number
    def check_full_rows(self):
       for row in range(self.grid_height):
          if all(self.tile_matrix[row]):
             row_total = sum(tile.number for tile in self.tile_matrix[row] if tile)
+            self.score += row_total
             for col in range(self.game_width):
                self.tile_matrix[row][col] = None
 
