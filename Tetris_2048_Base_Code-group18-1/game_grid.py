@@ -43,6 +43,19 @@ class GameGrid:
       stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
       # show the resulting drawing with a pause duration = 250 ms
       stddraw.show(250)
+   def merge_tiles(self):
+      # Iterate over each row and column in the grid
+      for row in range(1, self.grid_height):
+         for col in range(self.game_width):
+            # Get the current tile and the tile below it
+            current_tile = self.tile_matrix[row][col]
+            below_tile = self.tile_matrix[row - 1][col]
+            # Check if both tiles are not None and have the same number
+            if current_tile is not None and below_tile is not None and current_tile.number == below_tile.number:
+               # Double the value of the below tile
+               below_tile.number *= 2
+               # Clear the current tile
+               self.tile_matrix[row][col] = None
 
    # A method for drawing the cells and the lines of the game grid
    def draw_grid(self):
@@ -117,5 +130,6 @@ class GameGrid:
                # the game is over if any placed tile is above the game grid
                else:
                   self.game_over = True
+      self.merge_tiles()
       # return the value of the game_over flag
       return self.game_over
