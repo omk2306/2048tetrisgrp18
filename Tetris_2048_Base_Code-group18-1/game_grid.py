@@ -56,6 +56,12 @@ class GameGrid:
                below_tile.number *= 2
                # Clear the current tile
                self.tile_matrix[row][col] = None
+   def check_full_rows(self):
+      for row in range(self.grid_height):
+         if all(self.tile_matrix[row]):
+            row_total = sum(tile.number for tile in self.tile_matrix[row] if tile)
+            for col in range(self.game_width):
+               self.tile_matrix[row][col] = None
 
    # A method for drawing the cells and the lines of the game grid
    def draw_grid(self):
@@ -130,6 +136,7 @@ class GameGrid:
                # the game is over if any placed tile is above the game grid
                else:
                   self.game_over = True
+      self.check_full_rows()
       self.merge_tiles()
       # return the value of the game_over flag
       return self.game_over
