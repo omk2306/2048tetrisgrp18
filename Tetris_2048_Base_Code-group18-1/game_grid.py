@@ -9,7 +9,7 @@ class GameGrid:
    def __init__(self, grid_h, grid_w):
       # set the dimensions of the game grid as the given arguments
       self.grid_height = grid_h
-      self.grid_width = grid_w
+      self.game_width = grid_w
       # create a tile matrix to store the tiles locked on the game grid
       self.tile_matrix = np.full((grid_h, grid_w), None)
       # create the tetromino that is currently being moved on the game grid
@@ -37,6 +37,10 @@ class GameGrid:
          self.current_tetromino.draw()
       # draw a box around the game grid
       self.draw_boundaries()
+      stddraw.setPenColor(Color(1, 1, 25))
+      stddraw.setFontSize(22)
+      stddraw.text(self.game_width + 4.5, self.grid_height - 1, "SCORE")
+      stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
       # show the resulting drawing with a pause duration = 250 ms
       stddraw.show(250)
 
@@ -44,7 +48,7 @@ class GameGrid:
    def draw_grid(self):
       # for each cell of the game grid
       for row in range(self.grid_height):
-         for col in range(self.grid_width):
+         for col in range(self.game_width):
             # if the current grid cell is occupied by a tile
             if self.tile_matrix[row][col] is not None:
                # draw this tile
@@ -53,7 +57,7 @@ class GameGrid:
       stddraw.setPenColor(self.line_color)
       stddraw.setPenRadius(self.line_thickness)
       # x and y ranges for the game grid
-      start_x, end_x = -0.5, self.grid_width - 0.5
+      start_x, end_x = -0.5, self.game_width - 0.5
       start_y, end_y = -0.5, self.grid_height - 0.5
       for x in np.arange(start_x + 1, end_x, 1):  # vertical inner lines
          stddraw.line(x, start_y, x, end_y)
@@ -70,7 +74,7 @@ class GameGrid:
       stddraw.setPenRadius(self.box_thickness)
       # the coordinates of the bottom left corner of the game grid
       pos_x, pos_y = -0.5, -0.5
-      stddraw.rectangle(pos_x, pos_y, self.grid_width, self.grid_height)
+      stddraw.rectangle(pos_x, pos_y, self.game_width, self.grid_height)
       stddraw.setPenRadius()  # reset the pen radius to its default value
 
    # A method used checking whether the grid cell with the given row and column
@@ -88,7 +92,7 @@ class GameGrid:
    def is_inside(self, row, col):
       if row < 0 or row >= self.grid_height:
          return False
-      if col < 0 or col >= self.grid_width:
+      if col < 0 or col >= self.game_width:
          return False
       return True
 
