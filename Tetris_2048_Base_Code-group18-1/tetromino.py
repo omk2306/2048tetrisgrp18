@@ -207,3 +207,12 @@ class Tetromino:
                   break  # end the inner for loop
       # if this method does not end by returning False before this line
       return True  # this tetromino can be moved in the given direction
+
+   def rotate_clockwise(self):
+      n = len(self.tile_matrix)
+      new_matrix = np.full((n, n), None)
+      for i in range(n):  #
+         for j in range(n):  #
+            new_matrix[j][n - 1 - i] = self.tile_matrix[i][j]
+      self.tile_matrix = new_matrix
+

@@ -51,6 +51,13 @@ def start():
          elif key_typed == "right":
             # move the active tetromino right by one
             current_tetromino.move(key_typed, grid)
+         # if the up arrow key has been pressed
+         elif key_typed == "up":
+            current_tetromino.rotate_clockwise()
+            # if the space arrow key has been pressed
+         elif key_typed == "space":
+            while current_tetromino.move("down", grid):
+               pass
          # if the down arrow key has been pressed
          elif key_typed == "down":
             # move the active tetromino down by one
