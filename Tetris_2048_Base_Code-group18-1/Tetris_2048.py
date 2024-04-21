@@ -160,7 +160,7 @@ def display_game_menu(grid_height, grid_width):
                break  # break the loop to end the method and start the game
 
 def show_game_over(grid_w,grid_h):
-    stddraw.clear(stddraw.WHITE)  # Clear the canvas
+    stddraw.clear(stddraw.BLACK)  # Clear the canvas
     stddraw.setFontSize(30)
     stddraw.setPenColor(stddraw.RED)
     stddraw.text(grid_w / 2, grid_h / 2, "Game Over")
@@ -168,12 +168,11 @@ def show_game_over(grid_w,grid_h):
 
 def display_pause_menu():
     # the colors used for the menu
-    background_color = Color(42, 69, 99)
     button_color = Color(25, 255, 228)
     text_color = Color(0, 10, 0)
 
     # clear the background drawing canvas to background_color
-    stddraw.clear(background_color)
+    stddraw.clear(stddraw.BLACK)
 
     # the dimensions for the resume button
     grid_height = 20  # Adjust as needed
