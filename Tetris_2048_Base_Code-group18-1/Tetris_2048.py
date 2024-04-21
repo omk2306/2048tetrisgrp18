@@ -163,11 +163,11 @@ def display_pause_menu():
     
     # the dimensions for the resume button
     grid_height = 20  # Adjust as needed
-    grid_width = 12   # Adjust as needed
+    grid_width = 21   # Adjust as needed
     button_w, button_h = grid_width - 1.5, 2
     
     # the coordinates of the bottom left corner for the resume button
-    button_blc_x, button_blc_y = (grid_width - button_w)+10 / 2, grid_height / 2
+    button_blc_x, button_blc_y = (grid_width - button_w) / 2, grid_height / 2
     
     # add the resume button as a filled rectangle
     stddraw.setPenColor(button_color)
@@ -178,7 +178,7 @@ def display_pause_menu():
     stddraw.setFontSize(25)
     stddraw.setPenColor(text_color)
     text_to_display = "Resume"
-    stddraw.text((grid_width - 1) +1 /2, grid_height / 2 , text_to_display)
+    stddraw.text((grid_width - 1) / 2, grid_height / 2 + 1, text_to_display)
     
     # the user interaction loop for the pause menu
     while True:
