@@ -84,7 +84,8 @@ def start():
          game_over = grid.update_grid(tiles, pos)
          # end the main game loop if the game is over
          if game_over:
-            break
+             show_game_over(grid_w, grid_h)
+             break
          # create the next tetromino to enter the game grid
          # by using the create_tetromino function defined below
          current_tetromino = create_tetromino()
@@ -157,6 +158,14 @@ def display_game_menu(grid_height, grid_width):
          if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
             if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
                break  # break the loop to end the method and start the game
+
+def show_game_over(grid_w,grid_h):
+    stddraw.clear(stddraw.WHITE)  # Clear the canvas
+    stddraw.setFontSize(30)
+    stddraw.setPenColor(stddraw.RED)
+    stddraw.text(grid_w / 2, grid_h / 2, "Game Over")
+    stddraw.show()
+
 def display_pause_menu():
     # the colors used for the menu
     background_color = Color(42, 69, 99)

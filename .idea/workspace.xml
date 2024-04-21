@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f1e4808-25cd-4535-80dd-fea80e1ba4f3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/images/2048-games.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/Tetris_2048.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/Tetris_2048.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/game_grid.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/game_grid.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/images/menu_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris_2048_Base_Code-group18-1/images/menu_image.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
