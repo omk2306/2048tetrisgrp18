@@ -17,6 +17,7 @@ def start():
    # set the dimensions of the game grid
    game_width = 12
    grid_h, grid_w = 20, 22
+   
    # set the size of the drawing canvas (the displayed window)
    canvas_h, canvas_w = 40 * grid_h, 40 * grid_w
    stddraw.setCanvasSize(canvas_w, canvas_h)
@@ -63,6 +64,12 @@ def start():
             # move the active tetromino down by one
             # (soft drop: causes the tetromino to fall down faster)
             current_tetromino.move(key_typed, grid)
+         elif key_typed == "escape":  # Check if Esc key is pressed
+      
+            display_pause_menu()
+            # If the game is paused
+               
+
          # clear the queue of the pressed keys for a smoother interaction
          stddraw.clearKeysTyped()
 
@@ -82,6 +89,7 @@ def start():
          # by using the create_tetromino function defined below
          current_tetromino = create_tetromino()
          grid.current_tetromino = current_tetromino
+         
 
       # display the game grid with the current tetromino
       grid.display()
@@ -98,6 +106,7 @@ def create_tetromino():
    # create and return the tetromino
    tetromino = Tetromino(random_type)
    return tetromino
+
 
 # A function for displaying a simple menu before starting the game
 def display_game_menu(grid_height, grid_width):
@@ -143,6 +152,48 @@ def display_game_menu(grid_height, grid_width):
          if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
             if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
                break  # break the loop to end the method and start the game
+def display_pause_menu():
+    # the colors used for the menu
+    background_color = Color(42, 69, 99)
+    button_color = Color(25, 255, 228)
+    text_color = Color(0, 10, 0)
+    
+    # clear the background drawing canvas to background_color
+    stddraw.clear(background_color)
+    
+    # the dimensions for the resume button
+    grid_height = 20  # Adjust as needed
+    grid_width = 12   # Adjust as needed
+    button_w, button_h = grid_width - 1.5, 2
+    
+    # the coordinates of the bottom left corner for the resume button
+    button_blc_x, button_blc_y = (grid_width - button_w)+10 / 2, grid_height / 2
+    
+    # add the resume button as a filled rectangle
+    stddraw.setPenColor(button_color)
+    stddraw.filledRectangle(button_blc_x, button_blc_y, button_w, button_h)
+    
+    # add the text on the resume button
+    stddraw.setFontFamily("Arial Black")
+    stddraw.setFontSize(25)
+    stddraw.setPenColor(text_color)
+    text_to_display = "Resume"
+    stddraw.text((grid_width - 1) +1 /2, grid_height / 2 , text_to_display)
+    
+    # the user interaction loop for the pause menu
+    while True:
+        # display the menu and wait for a short time (50 ms)
+        stddraw.show(50)
+        
+        # check if the mouse has been left-clicked on the resume button
+        if stddraw.mousePressed():
+            # get the coordinates of the most recent location at which the mouse
+            # has been left-clicked
+            mouse_x, mouse_y = stddraw.mouseX(), stddraw.mouseY()
+            # check if these coordinates are inside the button
+            if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
+                if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
+                    return  # return to resume the game
 
 
 # start() function is specified as the entry point (main function) from which
