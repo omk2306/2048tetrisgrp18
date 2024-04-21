@@ -20,9 +20,9 @@ class GameGrid:
       self.empty_cell_color = Color(0, 0, 0)
       # set the colors used for the grid lines and the grid boundaries
       self.line_color = Color(0, 0, 0)
-      self.boundary_color = Color(0, 100, 200)
+      self.boundary_color = Color(255, 0, 0)
       # thickness values used for the grid lines and the grid boundaries
-      self.line_thickness = 0.002
+      self.line_thickness = 0.0005
       self.box_thickness = 10 * self.line_thickness
       self.score = 0
    # A method for displaying the game grid
@@ -54,7 +54,7 @@ class GameGrid:
       stddraw.text(self.game_width + 4.5, self.grid_height - 2, str(self.score))
       stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
       # show the resulting drawing with a pause duration = 250 ms
-      stddraw.show(250)
+      stddraw.show(200)
    def merge_tiles(self):
       # Iterate over each row and column in the grid
       for row in range(1, self.grid_height):

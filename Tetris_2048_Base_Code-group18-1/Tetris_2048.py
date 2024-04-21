@@ -84,20 +84,18 @@ def start():
          game_over = grid.update_grid(tiles, pos)
          # end the main game loop if the game is over
          if game_over:
-            show_game_over(grid_h, grid_w)
             break
          # create the next tetromino to enter the game grid
          # by using the create_tetromino function defined below
          current_tetromino = create_tetromino()
          grid.current_tetromino = current_tetromino
-         
+
 
       # display the game grid with the current tetromino
       grid.display()
 
    # print a message on the console when the game is over
    print("Game over")
-   
 
 # A function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino():
@@ -122,12 +120,17 @@ def display_game_menu(grid_height, grid_width):
    current_dir = os.path.dirname(os.path.realpath(__file__))
    # compute the path of the image file
    img_file = current_dir + "/images/menu_image.png"
+   img_file1 = current_dir + "/images/2048-games.png"
+
    # the coordinates to display the image centered horizontally
-   img_center_x, img_center_y = (grid_width - 1) / 2, grid_height - 7
+   img_center_x, img_center_y = (grid_width - 1) / 2, grid_height - 10
+   img_center_x1, img_center_y1 = (grid_width - 1) / 2, grid_height - 7
    # the image is modeled by using the Picture class
    image_to_display = Picture(img_file)
+   image_to_display1 = Picture(img_file1)
    # add the image to the drawing canvas
    stddraw.picture(image_to_display, img_center_x, img_center_y)
+   stddraw.picture(image_to_display1, img_center_x1, img_center_y1)
    # the dimensions for the start game button
    button_w, button_h = grid_width - 1.5, 2
    # the coordinates of the bottom left corner for the start game button
@@ -154,80 +157,47 @@ def display_game_menu(grid_height, grid_width):
          if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
             if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
                break  # break the loop to end the method and start the game
-# A function to handle the game over situation
-def show_game_over(grid_w,grid_h):
-    stddraw.clear(stddraw.WHITE)  # Clear the canvas
-    stddraw.setFontSize(30)
-    stddraw.setPenColor(stddraw.RED)
-    stddraw.text(grid_w / 2, grid_h / 2, "Game Over")
-    stddraw.show()
-
-
 def display_pause_menu():
     # the colors used for the menu
     background_color = Color(42, 69, 99)
     button_color = Color(25, 255, 228)
     text_color = Color(0, 10, 0)
-    
+
     # clear the background drawing canvas to background_color
     stddraw.clear(background_color)
-    
-    # the dimensions for the resume button and restart button
+
+    # the dimensions for the resume button
     grid_height = 20  # Adjust as needed
-    grid_width = 21   # Adjust as neededx
+    grid_width = 21   # Adjust as needed
     button_w, button_h = grid_width - 1.5, 2
-    restart_button_h = button_h  # Same height as resume button
-    restart_button_w = button_w  # Same width as resume button
-    
     # the coordinates of the bottom left corner for the resume button
-    resume_button_blc_x, resume_button_blc_y = (grid_width - button_w) / 2, grid_height / 2
-    
-    # the coordinates of the bottom left corner for the restart button
-    restart_button_blc_x = resume_button_blc_x
-    restart_button_blc_y = resume_button_blc_y - restart_button_h - 1  # Place below the resume button
-    
+    button_blc_x, button_blc_y = (grid_width - button_w) / 2, grid_height / 2
     # add the resume button as a filled rectangle
     stddraw.setPenColor(button_color)
-    stddraw.filledRectangle(resume_button_blc_x, resume_button_blc_y, button_w, button_h)
-    
+    stddraw.filledRectangle(button_blc_x, button_blc_y, button_w, button_h)
     # add the text on the resume button
     stddraw.setFontFamily("Arial Black")
     stddraw.setFontSize(25)
     stddraw.setPenColor(text_color)
-    resume_text_to_display = "Resume"
-    stddraw.text((grid_width - 1) / 2, grid_height / 2 + 1, resume_text_to_display)
-    
-    # add the restart button as a filled rectangle
-    stddraw.setPenColor(button_color)
-    stddraw.filledRectangle(restart_button_blc_x, restart_button_blc_y, restart_button_w, restart_button_h)
-    
-    # add the text on the restart button
-    stddraw.setFontFamily("Arial Black")
-    stddraw.setFontSize(25)
-    stddraw.setPenColor(text_color)
-    restart_text_to_display = "Restart"
-    stddraw.text((grid_width - 1) / 2, grid_height / 2 - restart_button_h - 1 + 1, restart_text_to_display)
-    
+    text_to_display = "Resume"
+    stddraw.text((grid_width - 1) / 2, grid_height / 2 + 1, text_to_display)
+
+
+
     # the user interaction loop for the pause menu
     while True:
         # display the menu and wait for a short time (50 ms)
         stddraw.show(50)
-        
+
         # check if the mouse has been left-clicked on the resume button
         if stddraw.mousePressed():
             # get the coordinates of the most recent location at which the mouse
             # has been left-clicked
             mouse_x, mouse_y = stddraw.mouseX(), stddraw.mouseY()
-            # check if these coordinates are inside the resume button
-            if mouse_x >= resume_button_blc_x and mouse_x <= resume_button_blc_x + button_w:
-                if mouse_y >= resume_button_blc_y and mouse_y <= resume_button_blc_y + button_h:
+            # check if these coordinates are inside the button
+            if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
+                if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
                     return  # return to resume the game
-            # check if these coordinates are inside the restart button
-            elif mouse_x >= restart_button_blc_x and mouse_x <= restart_button_blc_x + restart_button_w:
-                if mouse_y >= restart_button_blc_y and mouse_y <= restart_button_blc_y + restart_button_h:
-                    # Logic to restart the game can be added here
-                    pass  # Placeholder for restart logic
-
 
 
 # start() function is specified as the entry point (main function) from which
