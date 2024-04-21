@@ -52,6 +52,7 @@ class GameGrid:
       stddraw.text(self.game_width + 7, self.grid_height - 10, "HARD DROP" )
       stddraw.text(self.game_width + 4.5, self.grid_height - 2, str(self.score))
       stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
+      self.merge_tiles()
       # show the resulting drawing with a pause duration = 250 ms
       stddraw.show(250)
    def merge_tiles(self):
