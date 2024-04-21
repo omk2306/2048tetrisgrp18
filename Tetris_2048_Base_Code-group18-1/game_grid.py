@@ -38,6 +38,7 @@ class GameGrid:
       # draw a box around the game grid
       self.draw_boundaries()
       self.merge_tiles()
+      self.remove_filled_lines()
       stddraw.setPenColor(Color(255, 255, 255))
       stddraw.setFontSize(22)
       stddraw.text(self.game_width + 4.5, self.grid_height - 1, "SCORE")
@@ -77,6 +78,20 @@ class GameGrid:
             self.score += row_total
             for col in range(self.game_width):
                self.tile_matrix[row][col] = None
+
+   def remove_filled_lines(self):
+      remove_lines = []
+      for row in range(self.grid_height):
+         if all(self.tile_matrix[row]):
+            remove_lines.append(row)
+      for row in reversed(remove_lines):
+         current_position_post_removal = 0
+         for tile in self.tile_matrix[row]:
+            if tile is not None:
+               current_position_post_removal += tile.number
+         for r in range(row, self.grid_height - 1):
+            self.tile_matrix[r] = self.tile_matrix[r + 1]
+         self.tile_matrix[self.grid_height - 1] = [None] * self.game_width
 
    # A method for drawing the cells and the lines of the game grid
    def draw_grid(self):

@@ -55,10 +55,8 @@ class Tile:
             self.background_color = Color(128, 128, 0)
             self.foreground_color = Color(255, 255, 255)
             self.box_color = Color(100, 100, 0)
-        else:
-            self.background_color = Color(151, 178, 199)
-            self.foreground_color = Color(0, 100, 200)
-            self.box_color = Color(50, 100, 150)
+        
+
 
     def draw(self, position, length=1):
         stddraw.setPenColor(self.background_color)
