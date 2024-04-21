@@ -37,6 +37,7 @@ class GameGrid:
          self.current_tetromino.draw()
       # draw a box around the game grid
       self.draw_boundaries()
+      self.merge_tiles()
       stddraw.setPenColor(Color(255, 255, 255))
       stddraw.setFontSize(22)
       stddraw.text(self.game_width + 4.5, self.grid_height - 1, "SCORE")
@@ -151,6 +152,5 @@ class GameGrid:
                else:
                   self.game_over = True
       self.check_full_rows()
-      self.merge_tiles()
       # return the value of the game_over flag
       return self.game_over
