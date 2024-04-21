@@ -49,7 +49,7 @@ class GameGrid:
       stddraw.text(self.game_width + 1.5, self.grid_height - 9, "(UP)" )
       stddraw.text(self.game_width + 6, self.grid_height - 9, "ROTATE CLOCKWİSE")
       stddraw.text(self.game_width + 2, self.grid_height - 10, "(space)" )
-      stddraw.text(self.game_width + 6.5, self.grid_height - 10, "SKİP ANİMATİON" )
+      stddraw.text(self.game_width + 7, self.grid_height - 10, "HARD DROP" )
       stddraw.text(self.game_width + 4.5, self.grid_height - 2, str(self.score))
       stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
       # show the resulting drawing with a pause duration = 250 ms
