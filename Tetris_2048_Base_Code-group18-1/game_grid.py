@@ -66,6 +66,7 @@ class GameGrid:
             if current_tile is not None and below_tile is not None and current_tile.number == below_tile.number:
                # Double the value of the below tile
                below_tile.number *= 2
+               below_tile.set_colors()
                # Clear the current tile
                self.tile_matrix[row][col] = None
                self.score += below_tile.number
