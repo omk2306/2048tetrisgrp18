@@ -84,6 +84,7 @@ def start():
          game_over = grid.update_grid(tiles, pos)
          # end the main game loop if the game is over
          if game_over:
+            show_game_over(grid_h, grid_w)
             break
          # create the next tetromino to enter the game grid
          # by using the create_tetromino function defined below
@@ -96,6 +97,7 @@ def start():
 
    # print a message on the console when the game is over
    print("Game over")
+   
 
 # A function for creating random shaped tetrominoes to enter the game grid
 def create_tetromino():
@@ -152,6 +154,15 @@ def display_game_menu(grid_height, grid_width):
          if mouse_x >= button_blc_x and mouse_x <= button_blc_x + button_w:
             if mouse_y >= button_blc_y and mouse_y <= button_blc_y + button_h:
                break  # break the loop to end the method and start the game
+# A function to handle the game over situation
+def show_game_over(grid_w,grid_h):
+    stddraw.clear(stddraw.WHITE)  # Clear the canvas
+    stddraw.setFontSize(30)
+    stddraw.setPenColor(stddraw.RED)
+    stddraw.text(grid_w / 2, grid_h / 2, "Game Over")
+    stddraw.show()
+
+
 def display_pause_menu():
     # the colors used for the menu
     background_color = Color(42, 69, 99)
@@ -163,7 +174,7 @@ def display_pause_menu():
     
     # the dimensions for the resume button and restart button
     grid_height = 20  # Adjust as needed
-    grid_width = 21   # Adjust as needed
+    grid_width = 21   # Adjust as neededx
     button_w, button_h = grid_width - 1.5, 2
     restart_button_h = button_h  # Same height as resume button
     restart_button_w = button_w  # Same width as resume button
