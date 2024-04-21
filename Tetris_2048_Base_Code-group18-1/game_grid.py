@@ -17,9 +17,9 @@ class GameGrid:
       # the game_over flag shows whether the game is over or not
       self.game_over = False
       # set the color used for the empty grid cells
-      self.empty_cell_color = Color(42, 69, 99)
+      self.empty_cell_color = Color(0, 0, 0)
       # set the colors used for the grid lines and the grid boundaries
-      self.line_color = Color(0, 100, 200)
+      self.line_color = Color(0, 0, 0)
       self.boundary_color = Color(0, 100, 200)
       # thickness values used for the grid lines and the grid boundaries
       self.line_thickness = 0.002
@@ -37,7 +37,7 @@ class GameGrid:
          self.current_tetromino.draw()
       # draw a box around the game grid
       self.draw_boundaries()
-      stddraw.setPenColor(Color(1, 1, 25))
+      stddraw.setPenColor(Color(255, 255, 255))
       stddraw.setFontSize(22)
       stddraw.text(self.game_width + 4.5, self.grid_height - 1, "SCORE")
       stddraw.text(self.game_width + 4.5, self.grid_height - 5, "Buttons")
@@ -49,10 +49,9 @@ class GameGrid:
       stddraw.text(self.game_width + 1.5, self.grid_height - 9, "(UP)" )
       stddraw.text(self.game_width + 6, self.grid_height - 9, "ROTATE CLOCKWİSE")
       stddraw.text(self.game_width + 2, self.grid_height - 10, "(space)" )
-      stddraw.text(self.game_width + 7, self.grid_height - 10, "HARD DROP" )
+      stddraw.text(self.game_width + 6.5, self.grid_height - 10, "SKİP ANİMATİON" )
       stddraw.text(self.game_width + 4.5, self.grid_height - 2, str(self.score))
       stddraw.text(self.game_width + 4.5, self.grid_height - 14, "NEXT TETROMINO")
-      self.merge_tiles()
       # show the resulting drawing with a pause duration = 250 ms
       stddraw.show(250)
    def merge_tiles(self):
