@@ -3,7 +3,7 @@ from lib.color import Color
 import random
 
 class Tile:
-    boundary_thickness = 0.001
+    boundary_thickness = 0.008
     font_family, font_size = "Arial Black", 14
 
     def __init__(self):
@@ -12,53 +12,53 @@ class Tile:
 
     def set_colors(self):
         if self.number == 2:
-            self.background_color = Color(0, 255, 0)  # Green for 2
-            self.foreground_color = Color(0, 0, 0)    # Black for number
-            self.box_color = Color(0, 255, 0)         # Green for boundary
+            self.background_color = Color(0, 255, 0)
+            self.foreground_color = Color(0, 0, 0)
+            self.box_color = Color(0, 150, 0)
         elif self.number == 4:
-            self.background_color = Color(255, 255, 0)  # Yellow for 4
-            self.foreground_color = Color(0, 0, 0)      # Black for number
-            self.box_color = Color(255, 255, 0)         # Yellow for boundary
+            self.background_color = Color(255, 255, 0)
+            self.foreground_color = Color(0, 0, 0)
+            self.box_color = Color(200, 200, 0)
         elif self.number == 8:
-            self.background_color = Color(255, 0, 0)  # Red for 8
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(255, 0, 0)          # Red for boundary
+            self.background_color = Color(255, 0, 0)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(150, 0, 0)
         elif self.number == 16:
-            self.background_color = Color(0, 0, 255)  # Blue for 16
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(0, 0, 255)          # Blue for boundary
+            self.background_color = Color(0, 0, 255)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(0, 0, 150)
         elif self.number == 32:
-            self.background_color = Color(128, 0, 128)  # Purple for 32
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(128, 0, 128)          # Purple for boundary
+            self.background_color = Color(128, 0, 128)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(75, 0, 75)  # Darker
         elif self.number == 64:
-            self.background_color = Color(255, 165, 0)  # Orange for 64
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(255, 165, 0)          # Orange for boundary
+            self.background_color = Color(255, 165, 0)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(200, 120, 0)
         elif self.number == 128:
-            self.background_color = Color(255, 192, 203)  # Pink for 128
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(255, 192, 203)          # Pink for boundary
+            self.background_color = Color(255, 192, 203)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(200, 100, 120)
         elif self.number == 256:
-            self.background_color = Color(128, 0, 0)  # Maroon for 256
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(128, 0, 0)          # Maroon for boundary
+            self.background_color = Color(128, 0, 0)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(75, 0, 0)
         elif self.number == 512:
-            self.background_color = Color(255, 215, 0)  # Gold for 512
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(255, 215, 0)          # Gold for boundary
+            self.background_color = Color(255, 215, 0)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(200, 160, 0)
         elif self.number == 1024:
-            self.background_color = Color(0, 128, 128)  # Teal for 1024
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(0, 128, 128)          # Teal for boundary
+            self.background_color = Color(0, 128, 128)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(0, 100, 100)
         elif self.number == 2048:
-            self.background_color = Color(128, 128, 0)  # Olive for 2048
-            self.foreground_color = Color(255, 255, 255)  # White for number
-            self.box_color = Color(128, 128, 0)          # Olive for boundary
+            self.background_color = Color(128, 128, 0)
+            self.foreground_color = Color(255, 255, 255)
+            self.box_color = Color(100, 100, 0)
         else:
-            self.background_color = Color(151, 178, 199)  # Default background color
-            self.foreground_color = Color(0, 100, 200)     # Default foreground color
-            self.box_color = Color(0, 100, 200)           # Default box color
+            self.background_color = Color(151, 178, 199)
+            self.foreground_color = Color(0, 100, 200)
+            self.box_color = Color(50, 100, 150)
 
     def draw(self, position, length=1):
         stddraw.setPenColor(self.background_color)
